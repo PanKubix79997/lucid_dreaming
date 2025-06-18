@@ -1,89 +1,68 @@
 "use client";
 
-import React, { useState } from "react";
-
-function formatTime(date: Date): string {
-  return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-}
+import { useState } from "react";
+import Link from "next/link";
 
 export default function DreamCalculator() {
-  const [sleepTime, setSleepTime] = useState<string>("23:00");
-  const [wakeTimes, setWakeTimes] = useState<Date[]>([]);
+  const [time, setTime] = useState("");
+  const [calcs, setCalcs] = useState<string[]>([]);
 
-  const calculateWakeTimes = (time: string) => {
-    // konwersja czasu HH:MM na Date dzisiejszy dzień
-    const [hour, minute] = time.split(":").map(Number);
-    const sleepDate = new Date();
-    sleepDate.setHours(hour, minute, 0, 0);
-
-    // średni czas zasypiania ~15 min
-    const timeToFallAsleep = 15;
-
-    // 90-minutowe cykle snu
-    const cycle = 90;
-
-    // liczba cykli do rozważenia (4 do 6 cykli)
-    const cycles = [4, 5, 6];
-
-    // wyliczanie czasów wybudzenia
-    const wakeUpTimes = cycles.map((c) => {
-      const wake = new Date(sleepDate.getTime());
-      wake.setMinutes(wake.getMinutes() + timeToFallAsleep + c * cycle);
-      return wake;
-    });
-
-    setWakeTimes(wakeUpTimes);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSleepTime(e.target.value);
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    calculateWakeTimes(sleepTime);
+  const calculate = () => {
+    const [h, m] = time.split(":").map(Number);
+    if (
+      isNaN(h) ||
+      isNaN(m) ||
+      h < 0 ||
+      h > 23 ||
+      m < 0 ||
+      m > 59
+    ) {
+      setCalcs(["Wpisz poprawną godzinę w formacie HH:MM"]);
+      return;
+    }
+    const ok = [];
+    let totalMinutes = h * 60 + m;
+    for (let i = 1; i <= 6; i++) {
+      totalMinutes += 90;
+      const hh = Math.floor(totalMinutes / 60) % 24;
+      const mm = totalMinutes % 60;
+      ok.push(`Faza REM #${i}: ${hh.toString().padStart(2, "0")}:${mm.toString().padStart(2, "0")}`);
+    }
+    setCalcs(ok);
   };
 
   return (
-    <main className="max-w-xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6">Kalkulator świadomego snu</h1>
-
-      <form onSubmit={handleSubmit} className="mb-6">
-        <label htmlFor="sleepTime" className="block mb-2 font-medium">
-          Wybierz godzinę zaśnięcia:
-        </label>
+    <main className="min-h-screen bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-800 text-white p-10 flex flex-col items-center">
+      <h1 className="text-4xl font-extrabold mb-8 text-center"> Dream Calculator (co 90 minut)</h1>
+      <p className="max-w-2xl text-center mb-8">
+        Wprowadź godzinę, o której pójdziesz spać, a kalkulator wyliczy przybliżone fazy REM co 90 minut.
+      </p>
+      <div className="flex mb-8 gap-2">
         <input
           type="time"
-          id="sleepTime"
-          value={sleepTime}
-          onChange={handleChange}
-          className="border rounded px-3 py-2 w-full mb-4"
-          required
+          value={time}
+          onChange={(e) => setTime(e.target.value)}
+          className="bg-white text-black rounded px-4 py-2"
         />
         <button
-          type="submit"
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+          onClick={calculate}
+          className="bg-indigo-500 hover:bg-indigo-600 transition rounded px-6 py-2 font-semibold"
         >
-          Oblicz najlepsze czasy wybudzenia
+          Kalkuluj
         </button>
-      </form>
-
-      {wakeTimes.length > 0 && (
-        <section className="bg-gray-100 p-4 rounded shadow">
-          <h2 className="text-2xl font-semibold mb-4">Proponowane czasy wybudzenia</h2>
-          <ul className="list-disc list-inside space-y-2">
-            {wakeTimes.map((time, idx) => (
-              <li key={idx} className="text-lg">
-                {formatTime(time)} — po {4 + idx} cyklach snu (ok. {90 * (4 + idx)} minut)
-              </li>
-            ))}
-          </ul>
-          <p className="mt-4 text-gray-700">
-            <strong>Dlaczego?</strong> Budzenie się na koniec cyklu snu, zwłaszcza fazy REM,
-            pozwala poczuć się bardziej wypoczętym i zwiększa szansę na świadomy sen.
-          </p>
-        </section>
+      </div>
+      {calcs.length > 0 && (
+        <ul className="space-y-2 mb-8 text-center">
+          {calcs.map((c, idx) => (
+            <li key={idx} className="bg-white/20 rounded p-2 w-64 mx-auto">{c}</li>
+          ))}
+        </ul>
       )}
+      <nav className="w-full flex justify-center">
+        <Link href="/" className="bg-indigo-500 hover:bg-indigo-600 transition rounded px-8 py-3 font-semibold text-white text-center">
+          Strona Główna
+        </Link>
+      </nav>
     </main>
   );
 }

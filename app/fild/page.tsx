@@ -1,65 +1,37 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
+import Link from "next/link";
 
-export default function FildPage() {
+export default function Fild() {
   return (
-    <main className="max-w-4xl mx-auto px-4 py-8 space-y-8">
-      <h1 className="text-4xl font-bold text-center text-purple-700">🖐️ FILD – Finger Induced Lucid Dream</h1>
-
-      {/* OPIS TECHNIKI */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-purple-600">📖 Czym jest technika FILD?</h2>
-        <p>
-          FILD to prosta i skuteczna technika świadomego snienia polegająca na delikatnym poruszaniu palcami podczas zasypiania. Technika ta pomaga utrzymać umysł w stanie czuwania
-          podczas zasypiania, co zwiększa szanse na świadomy sen.
+    <main className="min-h-screen bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-800 text-white p-10 flex flex-col items-center">
+      <h1 className="text-4xl font-extrabold mb-10 text-center">Technika FILD – Finger Induced Lucid Dream</h1>
+      <section className="max-w-4xl text-lg leading-relaxed mb-12">
+        <p className="mb-6">
+          FILD (Finger Induced Lucid Dream) to technika wykorzystująca delikatne poruszanie palcami
+          tuż przed zaśnięciem. Palce wykonują drobne, subtelne ruchy (np. dotykanie kciuka),
+          co pomaga utrzymać ciało w stanie relaksu, a umysł w stanie czujności.
         </p>
-        <p>
-          Polega na bardzo subtelnym i powolnym ruchu palcami (np. wskazującym i środkowym), który jest na tyle lekki, że nie budzi całkowicie, ale pozwala zachować świadomość.
-          FILD jest polecana dla osób, które mają problem z utrzymaniem świadomości podczas zasypiania.
-        </p>
-      </section>
-
-      {/* KROK PO KROKU */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-purple-600">🛠️ Jak wykonać technikę FILD – krok po kroku</h2>
-        <ol className="list-decimal list-inside space-y-2">
-          <li>
-            Po 4-6 godzinach snu obudź się na około 20-30 minut (możesz połączyć z WBTB).
-          </li>
-          <li>
-            Połóż się z powrotem do łóżka i zacznij delikatnie poruszać palcami wskazującym i środkowym na ręce (np. stukaj nimi lekko o siebie lub o materac).
-          </li>
-          <li>
-            Staraj się utrzymać lekki ruch palców, jednocześnie relaksując ciało i umysł, pozwalając sobie na ponowne zasypianie.
-          </li>
-          <li>
-            Kontynuuj ruch przez kilka minut, aż wpadniesz w stan świadomego snu.
-          </li>
-          <li>
-            Gdy poczujesz, że zaczynasz śnić, użyj technik stabilizujących świadomy sen (np. pocieranie dłoni, obracanie się w śnie).
-          </li>
-        </ol>
-      </section>
-
-      {/* OPŁACALNOŚĆ */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-purple-600">📊 Ocena techniki FILD</h2>
-        <ul className="list-disc list-inside space-y-2">
-          <li>Trudność: ★★☆☆☆ – łatwa do nauczenia, wymaga praktyki subtelnego poruszania palcami.</li>
-          <li>Efektywność: ★★★☆☆ – dobra dla osób, które mają problem z utrzymaniem świadomości podczas zasypiania.</li>
-          <li>Opłacalność: umiarkowana – warto próbować w połączeniu z innymi technikami (np. WBTB).</li>
-          <li>Najczęstsze błędy: zbyt intensywny ruch palców, co prowadzi do przebudzenia; brak relaksu.</li>
-          <li>Dla kogo? Dla początkujących i średniozaawansowanych, którzy chcą łatwą technikę do wdrożenia przed snem.</li>
+        <h2 className="text-2xl font-bold mb-4">Dlaczego działa?</h2>
+        <ul className="list-disc list-inside space-y-3 mb-10">
+          <li>Palcowanie pomaga utrzymać świadomość, nie budząc ciała.</li>
+          <li>Łączy się z WBTB – po przebudzeniu wykonujesz FILD.</li>
+          <li>Reagujesz na hipnagogię i łatwo wchodzisz w LD.</li>
         </ul>
+        <h2 className="text-2xl font-bold mb-4">Kroki:</h2>
+        <ol className="list-decimal list-inside space-y-3 mb-12">
+          <li>Zaśnij normalnie.</li>
+          <li>Po 4–6 godzinach obudź się na krótko.</li>
+          <li>Połóż się i zacznij bardzo delikatnie poruszać palcami.</li>
+          <li>Obserwuj hipnagogiczne obrazy i odczuwaj paraliż – wejdź w LD.</li>
+        </ol>
+        <p className="italic text-center">„FILD to delikatne przypomnienie świadomości, bez przebudzenia.”</p>
       </section>
-
-      {/* POWRÓT */}
-      <div className="text-center pt-6">
-        <Link href="/" className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded shadow transition">
-          ← Wróć do strony głównej
+      <nav className="w-full flex justify-center">
+        <Link href="/" className="bg-indigo-500 hover:bg-indigo-600 transition rounded px-8 py-3 font-semibold text-white text-center">
+          Strona Główna
         </Link>
-      </div>
+      </nav>
     </main>
   );
 }

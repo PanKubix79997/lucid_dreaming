@@ -1,67 +1,36 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
+import Link from "next/link";
 
-export default function PildPage() {
+export default function Pild() {
   return (
-    <main className="max-w-4xl mx-auto px-4 py-8 space-y-8">
-      <h1 className="text-4xl font-bold text-center text-indigo-700">🌙 PILD – Post-Interrupted Lucid Dream</h1>
-
-      {/* OPIS TECHNIKI */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-indigo-600">📖 Czym jest technika PILD?</h2>
-        <p>
-          PILD to technika świadomego snienia, która polega na przerwaniu snu w określonym momencie, a następnie powrocie do snu z pełną świadomością, co pomaga przejść do świadomego snu.
-          Technika ta jest podobna do WBTB, ale skupia się bardziej na krótkim przerwaniu snu i szybkim ponownym zaśnięciu z intencją świadomego snu.
+    <main className="min-h-screen bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-800 text-white p-10 flex flex-col items-center">
+      <h1 className="text-4xl font-extrabold mb-10 text-center">Technika PILD –  Post-Interrupted Lucid Dream</h1>
+      <section className="max-w-4xl text-lg leading-relaxed mb-12">
+        <p className="mb-6">
+          PILD (Prospective Induction of Lucid Dream) to technika łącząca automatyczne myślenie i
+          mentalne przygotowanie. Przed snem powtarzasz frazę „następny sen będzie świadomym snem”
+          i wyobrażasz sobie siebie we śnie – co napędza intencję w nocy.
         </p>
-        <p>
-          PILD wymaga dyscypliny i planowania, ponieważ ważne jest precyzyjne wybudzenie się po kilku godzinach snu i powrót do łóżka bez dłuższego rozbudzenia.
-        </p>
-      </section>
-
-      {/* KROK PO KROKU */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-indigo-600">🛠️ Jak wykonać technikę PILD – krok po kroku</h2>
-        <ol className="list-decimal list-inside space-y-2">
-          <li>
-            Ustaw alarm na 4-6 godzin od momentu zaśnięcia.
-          </li>
-          <li>
-            Po wybudzeniu się, pozostaj świadomy, unikając w pełni wstawania i jasnych ekranów (np. telefonu).
-          </li>
-          <li>
-            Pozostań w łóżku i staraj się nie poruszać zbyt dużo, koncentrując się na intencji świadomego snu.
-          </li>
-          <li>
-            Skup się na relaksacji ciała i umysłu, nie zasypiaj zbyt głęboko, by nie stracić świadomości.
-          </li>
-          <li>
-            Po chwili zacznij techniki świadomego snu, np. wykonywanie testów rzeczywistości lub wizualizację snu.
-          </li>
-          <li>
-            Pozwól sobie powoli zasnąć, utrzymując świadomość i intencję wejścia w świadomy sen.
-          </li>
-        </ol>
-      </section>
-
-      {/* OPŁACALNOŚĆ */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-indigo-600">📊 Ocena techniki PILD</h2>
-        <ul className="list-disc list-inside space-y-2">
-          <li>Trudność: ★★★☆☆ – wymaga dyscypliny i dobrego planowania alarmu.</li>
-          <li>Efektywność: ★★★★☆ – skuteczna dla osób, które potrafią szybko zasypiać ponownie z utrzymaną świadomością.</li>
-          <li>Opłacalność: wysoka – warto połączyć z innymi technikami, np. MILD lub WILD.</li>
-          <li>Najczęstsze błędy: zbyt długie rozbudzenie się, jasne światło lub korzystanie z telefonu.</li>
-          <li>Dla kogo? Dla średniozaawansowanych i zaawansowanych świadomych śniących.</li>
+        <h2 className="text-2xl font-bold mb-4">Dlaczego działa?</h2>
+        <ul className="list-disc list-inside space-y-3 mb-10">
+          <li>Łączy mentalną wizualizację i intencję.</li>
+          <li>Działa bez przerw w śnie – stosujesz go tuż przed zaśnięciem.</li>
+          <li>Wzmacnia pamięć snów i świadomość w fazie REM.</li>
         </ul>
+        <h2 className="text-2xl font-bold mb-4">Kroki:</h2>
+        <ol className="list-decimal list-inside space-y-3 mb-12">
+          <li>Prowadź dziennik snów.</li>
+          <li>Wieczorem powtarzaj frazę intencyjną i wyobraź sobie sen.</li>
+          <li>Skup się na świadomym wejściu w sen podczas zaśnięcia.</li>
+        </ol>
+        <p className="italic text-center">„PILD wzmacnia mentalnie – to intencja + wizualizacja = LD.”</p>
       </section>
-
-      {/* POWRÓT */}
-      <div className="text-center pt-6">
-        <Link href="/" className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded shadow transition">
-          ← Wróć do strony głównej
+      <nav className="w-full flex justify-center">
+        <Link href="/" className="bg-indigo-500 hover:bg-indigo-600 transition rounded px-8 py-3 font-semibold text-white text-center">
+          Strona Główna
         </Link>
-      </div>
+      </nav>
     </main>
   );
 }

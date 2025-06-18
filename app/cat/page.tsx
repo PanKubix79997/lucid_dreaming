@@ -1,56 +1,35 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
+import Link from "next/link";
 
-export default function CatPage() {
+export default function Cat() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-indigo-100 to-purple-200 p-6 text-gray-800">
-      <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl p-8">
-        <h1 className="text-4xl font-bold text-purple-700 mb-6">Technika CAT (Cycle Adjustment Technique)</h1>
-
-        {/* Opis */}
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-purple-600 mb-2">🧠 Opis techniki</h2>
-          <p className="text-lg leading-relaxed">
-            Technika CAT (Cycle Adjustment Technique) to metoda osiągania świadomych snów poprzez manipulację cyklem snu i czuwania. 
-            Opiera się na idei regularnego budzenia się wcześniej niż zwykle w celu wytrenowania umysłu do przeprowadzania testów rzeczywistości w odpowiednim czasie – 
-            wtedy, gdy najbardziej prawdopodobne jest, że śnisz.
-          </p>
-        </section>
-
-        {/* Krok po kroku */}
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-purple-600 mb-2">🪜 Krok po kroku</h2>
-          <ol className="list-decimal list-inside space-y-2 text-lg">
-            <li>Przez około 7–10 dni budź się codziennie o tej samej porze – np. o 6:30. Budź się wcześnie!</li>
-            <li>Po przebudzeniu wykonuj testy rzeczywistości (np. zatykanie nosa i próba oddychania).</li>
-            <li>W kolejnym tygodniu – w niektóre dni wróć do spania (np. w poniedziałek, środę i piątek), 
-            a w pozostałe dni wstań jak wcześniej.</li>
-            <li>Twój umysł zacznie kojarzyć tę godzinę (np. 6:30) z testem rzeczywistości, więc gdy się obudzisz we śnie, 
-            istnieje duża szansa, że wykonasz test automatycznie.</li>
-          </ol>
-        </section>
-
-        {/* Opłacalność i trudność */}
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-purple-600 mb-2">📊 Opłacalność i trudność</h2>
-          <ul className="list-disc list-inside space-y-1 text-lg">
-            <li><strong>Opłacalność:</strong> Wysoka – technika działa bardzo dobrze dla osób z regularnym trybem życia.</li>
-            <li><strong>Trudność:</strong> Średnia – wymaga dyscypliny i porannego wstawania.</li>
-            <li><strong>Idealna dla:</strong> Osób mających stały harmonogram i chcących zbudować nawyk testów rzeczywistości.</li>
-          </ul>
-        </section>
-
-        {/* Powrót */}
-        <div className="text-center">
-          <Link href="/">
-            <button className="mt-6 inline-flex items-center px-6 py-3 bg-purple-600 text-white rounded-xl hover:bg-purple-700 transition">
-              ← Powrót na stronę główną
-            </button>
-          </Link>
-        </div>
-      </div>
+    <main className="min-h-screen bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-800 text-white p-10 flex flex-col items-center">
+      <h1 className="text-4xl font-extrabold mb-10 text-center">Technika CAT –  Cycle Adjustment Technique</h1>
+      <section className="max-w-4xl text-lg leading-relaxed mb-12">
+        <p className="mb-6">
+          CAT (Cycle Adjustment Technique) to technika zarządzania cyklami snu – dopasowujesz czas zasypiania
+          i przebudzeń tak, by ulepszyć przejścia do świadomych snów w fazach REM.
+        </p>
+        <h2 className="text-2xl font-bold mb-4">Dlaczego działa?</h2>
+        <ul className="list-disc list-inside space-y-3 mb-10">
+          <li>Pozwala wejść w REM w optymalnych momentach.</li>
+          <li>Minimalizuje „przejściowe bóle” związane ze śnieniem.</li>
+          <li>Wspiera inne techniki LD (WBTB, WILD itp.).</li>
+        </ul>
+        <h2 className="text-2xl font-bold mb-4">Kroki:</h2>
+        <ol className="list-decimal list-inside space-y-3 mb-12">
+          <li>Obserwuj swoje cykle snu (ok. 90-min).</li>
+          <li>Ustaw budzik na koniec cyklu lub skorzystaj z kalkulatora przekazania.</li>
+          <li>Obudź się, użyj techniki (WILD/MILD/FILD/PILD).</li>
+        </ol>
+        <p className="italic text-center">„CAT to precyzyjne wejście w fazę, w której LD jest najłatwiejsze.”</p>
+      </section>
+      <nav className="w-full flex justify-center">
+        <Link href="/" className="bg-indigo-500 hover:bg-indigo-600 transition rounded px-8 py-3 font-semibold text-white text-center">
+          Strona Główna
+        </Link>
+      </nav>
     </main>
   );
 }
